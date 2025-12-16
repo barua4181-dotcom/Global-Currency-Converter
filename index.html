@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Global Currency Converter | 150+ Currencies</title>
+    <meta
+      name="description"
+      content="Global Currency Converter with 150+ currencies. Convert, swap, and clear instantly using live exchange rates."
+    />
+    <link rel="canonical" href="./" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Global Currency Converter",
+        "url": "./",
+        "description": "Convert between 150+ worldwide currencies with live exchange rates."
+      }
+    </script>
+
+    <script defer src="./script.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="title">Global Currency Converter</h1>
+        <p class="subtitle">Convert 150+ currencies worldwide (live rates)</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card" aria-label="Currency converter">
+        <div class="badge" id="currencyCount">Loading currencies…</div>
+
+        <div class="field">
+          <label for="amount" class="label">Amount</label>
+          <input
+            id="amount"
+            class="input"
+            type="number"
+            inputmode="decimal"
+            placeholder="Enter amount and click Convert"
+            min="0"
+            step="any"
+          />
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="fromSearch" class="label">From (search)</label>
+            <input id="fromSearch" class="input input--sm" type="text" placeholder="Search currency…" />
+            <label for="fromCurrency" class="sr-only">From currency</label>
+            <select id="fromCurrency" class="select" size="6"></select>
+          </div>
+
+          <div class="swap-wrap">
+            <button id="swapBtn" class="btn btn--secondary" type="button" aria-label="Swap currencies">
+              Swap
+            </button>
+          </div>
+
+          <div class="field">
+            <label for="toSearch" class="label">To (search)</label>
+            <input id="toSearch" class="input input--sm" type="text" placeholder="Search currency…" />
+            <label for="toCurrency" class="sr-only">To currency</label>
+            <select id="toCurrency" class="select" size="6"></select>
+          </div>
+        </div>
+
+        <section class="result" aria-label="Converted amount">
+          <p class="result-label">Converted Amount</p>
+          <p class="result-value" id="resultValue">0.00</p>
+          <p class="result-details" id="resultDetails">Enter an amount and click Convert.</p>
+        </section>
+
+        <div class="actions">
+          <button id="convertBtn" class="btn btn--primary" type="button">Convert</button>
+          <button id="clearBtn" class="btn btn--ghost" type="button">Clear</button>
+        </div>
+
+        <p class="status" id="statusText" aria-live="polite"></p>
+        <p class="hint">Tip: rates are fetched live from a free public exchange-rate endpoint.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© <span id="year"></span> Global Currency Converter</small>
+      </div>
+    </footer>
+  </body>
+</html>
